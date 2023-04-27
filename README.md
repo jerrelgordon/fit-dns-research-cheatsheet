@@ -9,7 +9,7 @@ If any information such as detailed descriptions and definitions are needed, ple
 
 ## Quick Links
 
-1) [BIND9](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#bind9)
+1) [BIND9](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#bind9)
 2) [CACHING](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#caching)
 3) [Configuration Files/ Directories](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#configuration-files-directories)
 4) [DNSPerf](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dnsperf)
