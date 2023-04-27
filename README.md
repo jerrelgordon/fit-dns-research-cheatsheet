@@ -10,15 +10,15 @@ If any information such as detailed descriptions and definitions are needed, ple
 ## Quick Links
 
 1) [BIND9](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#bind9)
-2) [CACHING](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#caching)
-3) [Configuration Files/ Directories](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#configuration-files-directories)
-4) [DNSPerf](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dnsperf)
-5) [DNSSEC](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dnssec)
-6) [DOH (Incomplete)](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#doh-incomplete)
-7) [DOT](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dot)
-8) [FIU 5G Testbed](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#fiu-5g-testbed)
-9) [Virt-Manager](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#virt-manager)
-10) [Additional Troubleshooting Tips](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#additional-troubleshooting-tips)
+2) [CACHING](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#caching)
+3) [Configuration Files/ Directories](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#configuration-files-directories)
+4) [DNSPerf](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dnsperf)
+5) [DNSSEC](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dnssec)
+6) [DOH (Incomplete)](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#doh-incomplete)
+7) [DOT](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dot)
+8) [FIU 5G Testbed](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#fiu-5g-testbed)
+9) [Virt-Manager](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#virt-manager)
+10) [Additional Troubleshooting Tips](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#additional-troubleshooting-tips)
 
 
 
@@ -265,7 +265,7 @@ This command is telling the dnsperf tool to send 10,000 DNS queries to a local D
 
 ## DNSSEC
 
-Install [bind](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#bind9)
+Install [bind](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#bind9)
 
 Configure bind options to allow for dnssec
 
@@ -441,7 +441,7 @@ dig A jerrel-ns.com. @localhost +noadditional +dnssec +multiline
 kdig @192.168.222.5 +dnssec bbc.co.uk
 ```
 
-[DNSSEC](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dnssec) + [DOT](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dot)
+[DNSSEC](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dnssec) + [DOT](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dot)
 
 ```
 kdig @192.168.222.5 +tls +dnssec bbc.co.uk
@@ -462,7 +462,7 @@ To implement DNS-over-HTTPS (DOH) on your Bind9 server, you can follow these gen
 > Configure your web server to act as a reverse proxy for DOH traffic. For example, in Nginx, you can add the following location block to your configuration file
 
 
-Install [bind](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#bind9)
+Install [bind](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#bind9)
 
 Install Web server: Nginx
 
@@ -608,7 +608,7 @@ This example uses the google DNS. DOH is incomplete since curl does not work, bu
 
 ## DOT
 
-Install [bind](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#bind9)
+Install [bind](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#bind9)
 
 Open the main configuration file.
 
@@ -688,7 +688,7 @@ To test:
 kdig @192.168.222.5 +tls bbc.co.uk
 ```
 
-[DNSSEC](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dnssec) + [DOT](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#dot)
+[DNSSEC](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dnssec) + [DOT](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#dot)
 
 ```
 kdig @192.168.222.5 +tls +dnssec bbc.co.uk
@@ -805,7 +805,7 @@ sudo systemctl status bind9
 sudo named-checkconf
 ```
 
-* Clear [cache](https://github.com/jerrelgordon/cse4850/blob/main/FITdnsBIND9cheatsheet.md#caching) before experiments for external DNS records. Might have to clear after each query for that record.
+* Clear [cache](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#caching) before experiments for external DNS records. Might have to clear after each query for that record.
 
 ```
 sudo rndc flush
