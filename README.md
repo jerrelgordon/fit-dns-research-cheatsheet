@@ -365,7 +365,7 @@ done
 make it executable 
 
 ```
-chmod +x file.sh
+chmod +x migrate.sh
 ```
 
 modify the script to match the patterns of your key file names ... 
@@ -378,7 +378,7 @@ Kmyzone-ns.com.+007+00068.key   Kmyzone-ns.com.+007+00068.private
 
 run file: 
 ```
-sudo ./file.sh
+sudo ./migrate.sh
 ```
 
 
