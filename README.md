@@ -823,9 +823,10 @@ Note: There were plans to use the CLI "virsh" in conjunction with virt-manager t
 
 ## Additional Troubleshooting Tips
 
-* Sometimes the vms may be disconnected from the internet and you may be unsure why. running this on the main workstation/ whereever your switch is fixes it usually.
+* Sometimes the vms may be disconnected from the internet and you may be unsure why. running this to more or less reinitialize the switch on the main workstation/ whereever your switch is fixes it usually.
 
 ```
+sudo ifconfig br0 192.168.233.1/24
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo iptables -t nat -A POSTROUTING -s 192.168.233.0/24 -o ens160 -j MASQUERADE
 ```
