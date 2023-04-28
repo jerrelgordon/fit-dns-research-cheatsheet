@@ -263,6 +263,28 @@ dnsperf -d file.txt -s 127.0.0.1 -c 10 -Q 10000 -l 10
 This command is telling the dnsperf tool to send 10,000 DNS queries to a local DNS server running on the same machine, using 10 concurrent clients, and to run the test for 10 seconds. The tool will read the list of DNS queries from the file.txt input file.
 
 
+If testing DNSSEC include "-D"
+
+for example:
+
+```
+dnsperf -D -d file.txt -s 127.0.0.1 -c 10 -Q 10000 -l 10
+```
+
+If testing DOT set the mode to tls by including "-m tls"
+for example:
+
+```
+dnsperf -m tls -d file.txt -s 127.0.0.1 -c 10 -Q 10000 -l 10
+```
+
+If testing both DNSSEC + DOT combined, just include both
+for example:
+
+```
+dnsperf -D -m tls -d file.txt -s 127.0.0.1 -c 10 -Q 10000 -l 10
+```
+
 ## DNSSEC
 
 Install [bind](https://github.com/jerrelgordon/fit-dns-research-cheatsheet/blob/main/README.md#bind9)
