@@ -332,13 +332,13 @@ cd /var/cache/bind
 Create zone signing key (ZSK): 
  
  ```
- sudo dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE jerrel-ns.com
+ sudo dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE myzone-ns.com
  ```
  
 Create key signing key (KSK): 
 
 ```
-sudo dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE jerrel-ns.com
+sudo dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE myzone-ns.com
 ```
   
 Note: 
@@ -356,9 +356,9 @@ nano migrate.sh
 Save the following into the file
 
 ```
-for key in `ls Kjerrel-ns.com*.key`
+for key in `ls Kmyzone-ns.com*.key`
 do
-echo "\$INCLUDE $key">> /etc/bind/zones/db.jerrel-ns.com
+echo "\$INCLUDE $key">> /etc/bind/zones/db.myzone-ns.com
 done
 ```
 
@@ -371,9 +371,10 @@ chmod +x file.sh
 modify the script to match the patterns of your key file names ... 
 my key files in this example are:
 
-Kjerrel-ns.com.+007+28483.key      Kjerrel-ns.com.+007+41844.private 
-Kjerrel-ns.com.+007+41844.key Kjerrel-ns.com.+007+28483.private
-
+```
+Kmyzone-ns.com.+007+08845.key   Kmyzone-ns.com.+007+08845.private 
+Kmyzone-ns.com.+007+00068.key   Kmyzone-ns.com.+007+00068.private  
+```
 
 run file: 
 ```
@@ -385,26 +386,35 @@ sudo ./file.sh
 Check to make sure the entries got added. Change to wherever ur zone file is stored.
 
 ```
-cat etc/bind/zones/db.jerrel-ns.com
+cat etc/bind/zones/db.myzone-ns.com
 ```
 
 
 
 ```
 -----------------------FILE-----------------------------
-.
-.
-.
-; name servers - A records
-ns2.jerrel-ns.com.          IN      A      192.168.222.5
+$TTL    604800
+@       IN      SOA     ns1.example-ns.com. root.example-ns.com. (
+                  3       ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             1D )   ; Negative Cache TTL
+;
+; name servers - NS records
+     IN      NS      ns1.example-ns.com.
 
-host1.jerrel-ns.com.        IN      A      10.0.2.15
-host2.jerrel-ns.com.        IN      A      10.0.2.6
-host3.jerrel-ns.com.        IN      A      10.0.2.7
-host3.jerrel-ns.com.        IN      A      10.0.2.8
-host4.jerrel-ns.com.        IN      A      10.0.2.9
-$INCLUDE Kjerrel-ns.com.+007+28483.key
-$INCLUDE Kjerrel-ns.com.+007+41844.key
+; name servers - A records
+ns1.example-ns.com.          IN      A      192.168.233.6
+
+host1.example-ns.com.        IN      A      10.0.2.15
+host2.example-ns.com.        IN      A      10.0.2.6
+host3.example-ns.com.        IN      A      10.0.2.7
+host3.example-ns.com.        IN      A      10.0.2.8
+host4.example-ns.com.        IN      A      10.0.2.9
+$INCLUDE Kmyzone-ns.com.+007+00068.key
+$INCLUDE Kmyzone-ns.com.+007+08845.key
+
 
 -----------------------FILE ----------------------------
 ```
@@ -413,7 +423,7 @@ $INCLUDE Kjerrel-ns.com.+007+41844.key
 Sign the files 
 
 ```
-sudo dnssec-signzone -A -N INCREMENT -o jerrel-ns.com -t /etc/bind/zones/db.jerrel-ns.com
+sudo dnssec-signzone -A -N INCREMENT -o myzone-ns.com -t /etc/bind/zones/db.myzone-ns.com
 ````
 
 Output should look like:
@@ -423,15 +433,15 @@ Verifying the zone using the following algorithms: NSEC3RSASHA1.
 Zone fully signed:
 Algorithm: NSEC3RSASHA1: KSKs: 1 active, 0 stand-by, 0 revoked
                          ZSKs: 1 active, 0 stand-by, 0 revoked
-/etc/bind/zones/db.jerrel-ns.com.signed
-Signatures generated:                       15
+/etc/bind/zones/db.myzone-ns.com.signed
+Signatures generated:                        5
 Signatures retained:                         0
 Signatures dropped:                          0
 Signatures successfully verified:            0
 Signatures unsuccessfully verified:          0
-Signing time in seconds:                 0.020
-Signatures per second:                 750.000
-Runtime in seconds:                      0.036
+Signing time in seconds:                 0.004
+Signatures per second:                1250.000
+Runtime in seconds:                      0.016
 ```
 
 
