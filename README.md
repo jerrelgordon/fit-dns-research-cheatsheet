@@ -106,24 +106,25 @@ Paste the following in the file. Modify this template as necessary.
 
 ```
 $TTL    604800
-@       IN      SOA     ns1.domain-name.com. root.domain-name.com. (
+@       IN      SOA     ns1.example-ns.com. root.example-ns.com. (
                   3       ; Serial
              604800     ; Refresh
               86400     ; Retry
             2419200     ; Expire
-             604800 )   ; Negative Cache TTL
+             1D )   ; Negative Cache TTL
 ;
 ; name servers - NS records
-     IN      NS      ns1.domain-name.com.
+     IN      NS      ns1.example-ns.com.
 
 ; name servers - A records
-ns1.domain-name.com.         IN      A      172.20.0.2
+ns1.example-ns.com.          IN      A      192.168.233.6
 
-host1.domain-name.com.       IN      A      172.20.0.4
-host2.domain-name.com.       IN      A      172.20.0.5
-host3.domain-name.com.       IN      A      172.20.0.6
-host3.domain-name.com.       IN      A      172.20.0.7
-host4.domain-name.com.       IN      A      172.20.0.8
+host1.example-ns.com.        IN      A      10.0.2.15
+host2.example-ns.com.        IN      A      10.0.2.6
+host3.example-ns.com.        IN      A      10.0.2.7
+host3.example-ns.com.        IN      A      10.0.2.8
+host4.example-ns.com.        IN      A      10.0.2.9
+
 
 ```
 
