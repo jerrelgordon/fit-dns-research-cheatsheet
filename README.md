@@ -465,11 +465,11 @@ service bind9 reload
 Run to test 
 
 ```
-dig DNSKEY jerrel-ns.com. @localhost +multiline
+dig DNSKEY myzone-ns.com. @localhost +multiline
 ```
 
 ```
-dig A jerrel-ns.com. @localhost +noadditional +dnssec +multiline
+dig A myzone-ns.com. @localhost +noadditional +dnssec +multiline
 ```
 
 ```
