@@ -272,6 +272,7 @@ dnsperf -D -d file.txt -s 127.0.0.1 -c 10 -Q 10000 -l 10
 ```
 
 If testing DOT set the mode to tls by including "-m tls"
+
 for example:
 
 ```
@@ -279,6 +280,7 @@ dnsperf -m tls -d file.txt -s 127.0.0.1 -c 10 -Q 10000 -l 10
 ```
 
 If testing both DNSSEC + DOT combined, just include both
+
 for example:
 
 ```
