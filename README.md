@@ -755,7 +755,7 @@ sudo systemctl status bind9
 
 #### NOTE: DNS server can be set up either on gNB directly, or on a separate vm, as long as the controller is set up on gNB.
 
-* To set up the testbed use the following youtube link
+* To set up the testbed use the following youtube link: https://www.youtube.com/watch?v=CRe1QIp1Jlo
 * To set up flows, use Ricardo's script. It is currently located on the Desktop of gNB.
 * If Installation steps are needed, request permission from Ricardo for his GitHub.
 * For anything else related to the 5G set up, please contact Diana or Ricardo.
